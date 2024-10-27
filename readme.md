@@ -21,4 +21,10 @@ Welcome to the **FastApiServer**! This API server is built using FastAPI and pro
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/sidharth-sanal/FastApiServer.git
+   git clone https://github.com/Sidharth-s-01/FastApiServer.git
+2.
+    ```python 
+    pip install -r requirements.txt
+3. cd app
+4. python main.py
+
