@@ -1,0 +1,5 @@
+#avoid all pycache files
+
+env3
+__pycache__
+.idea
