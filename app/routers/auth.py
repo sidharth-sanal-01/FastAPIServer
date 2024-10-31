@@ -27,17 +27,17 @@ def login(
     if searchUser == None:
         raise HTTPException(
             detai="User not found..Please signup and create an account..",
-            status_code=status.HTTP_404_NOT_FOUND,
+            status_code=status.HTTP_403_FORBIDDEN,
         )
 
     # returning error if username is correct and password is wrong
     if not utils.verifyPassword(searchUser.password, userCredentials.password):
         raise HTTPException(
             detail="User Password wrong..Please try again...",
-            status_code=status.HTTP_404_NOT_FOUND,
+            status_code=status.HTTP_403_FORBIDDEN,
         )
 
-    # creating a token 
+    # creating a token
     token = oauth2.create_access_token(data={"userId": searchUser.id})
     return {"access_token": token, "token_type": "bearer"}
 
@@ -55,3 +55,4 @@ def create_user(userCredentials: OAuth2PasswordRequestForm = Depends(), db: Sess
     db.commit()
     db.refresh(newUser)
     return newUser
+
