@@ -13,8 +13,9 @@ router = APIRouter(
 
 
 # return every user
-@router.get("/", status_code=status.HTTP_200_OK, response_model=List[schemas.UserOut])
+@router.get("/", status_code=status.HTTP_200_OK, response_model=List[schemas.EveryUser])
 def getAllUsers(db: Session = Depends(get_db)):
+    print("Reached here")
     Users = db.query(models.Users).all()  # return all the data frm posts
     return Users
 
